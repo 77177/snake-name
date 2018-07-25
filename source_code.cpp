@@ -31,10 +31,7 @@ int main()
 	playfield[55] = '0';
 
 	cout << "Set speed: 1 - very slow, 0.1 - very fast, a numbers in between are avalible\n";
-
-	
 	double speed;
-
 	cin >> speed;
 	time_t t = time(NULL);
 	do
@@ -51,7 +48,7 @@ int main()
 					cout << endl;
 				}
 			}
-			
+		
 			if (_kbhit() == true)
 			{
 				choice = _getch();
