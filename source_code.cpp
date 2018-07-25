@@ -4,6 +4,7 @@
 #include <vector>
 #include <conio.h> 
 #include <time.h>
+
 using namespace std;
 
 int main()
@@ -12,7 +13,7 @@ int main()
 	int Playerplace = 20;
 	char playfield[150];
 	char save;
-	char* addressbuffer;
+	
 	char* last_place;
 	bool lose = false, foodexists = true;
 	for (int i = 0; i < 150; i++)
@@ -20,18 +21,25 @@ int main()
 		playfield[i] = '_';
 	}
 	vector<char*> snake;
-	int t = time(NULL);
 	char* s;
-	char *ad1;
-	char* ad2;
+	
 	s = &playfield[Playerplace];
 	save = *s;
 	*s = 'X';
+	char choice;
 	snake.push_back(s);
 	playfield[55] = '0';
+
+	cout << "Set speed: 1 - very slow, 0.1 - very fast, a numbers in between are avalible\n";
+
+	
+	double speed;
+
+	cin >> speed;
+	time_t t = time(NULL);
 	do
 	{
-		if (time(NULL) == t + 0, 5)
+	if (time(NULL) == t + speed)
 		{
 			system("cls");
 			for (int i = 0; i < 150; i++)
@@ -43,10 +51,12 @@ int main()
 					cout << endl;
 				}
 			}
-			char choice;
-			if (kbhit() == true)
+			
+			if (_kbhit() == true)
 			{
-				choice = getch();
+				choice = _getch();
+				char flush = _getch();
+			
 			}
 			switch (choice)
 			{
@@ -81,7 +91,7 @@ int main()
 				break;
 			}
 			case 'a':
-			{char* saveadr;
+			{
 			if (Playerplace == 0 || Playerplace == 15 || Playerplace == 30 || Playerplace == 45 || Playerplace == 60 || Playerplace == 75 || Playerplace == 90 || Playerplace == 105 || Playerplace == 120 || Playerplace == 135)
 			{
 				Playerplace += 14;
@@ -116,7 +126,7 @@ int main()
 				{
 					Playerplace -= 135;
 				}
-        
+
 				else
 				{
 					Playerplace += 15;
@@ -144,7 +154,7 @@ int main()
 			}
 			case 'd':
 			{
-      	if (Playerplace == 14 || Playerplace == 29 || Playerplace == 44 || Playerplace == 59 || Playerplace == 74 || Playerplace == 89 || Playerplace == 204 || Playerplace == 119 || Playerplace == 134 || Playerplace == 149)
+				if (Playerplace == 14 || Playerplace == 29 || Playerplace == 44 || Playerplace == 59 || Playerplace == 74 || Playerplace == 89 || Playerplace == 204 || Playerplace == 119 || Playerplace == 134 || Playerplace == 149)
 				{
 					Playerplace -= 14;
 				}
@@ -229,7 +239,6 @@ int main()
 
 	cout << endl;
 	cout << "You lost, your snake is " << snake.size() << " points long" << endl;
+	cin.get();
 	return 0;
 }
-
-
