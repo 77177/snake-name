@@ -1,5 +1,5 @@
 
-/*COPY INTO TO A COMPLER AND RUN*/
+/*COPY PASTE INTO A C++ COMPILER AND HAVE FUN GODDAMIT*/
 #include <iostream>
 #include <vector>
 #include <conio.h> 
