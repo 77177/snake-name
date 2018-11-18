@@ -230,8 +230,6 @@ int main()
 			t = time(NULL);
 		}
 	} while (lose != true);
-
-
 	cout << endl;
 	cout << "You lost, your snake is " << snake.size() << " points long" << endl;
 	cin.get();
